@@ -1,4 +1,3 @@
-const btnSwitch = document.querySelector('#switch');
 
 btnSwitch.addEventListener('click', () => {
   document.body.classList.toggle('dark');/*toggle: si tiene una clase se la va a quitar 
@@ -12,12 +11,13 @@ btnSwitch.addEventListener('click', () => {
      localStorage.setItem('darkmode','false');
   }
 
-   //Evitar quitar el modo oscuro al recargar la pagina
-   if (localStorage.setItem('darkmode') ==='true') {
-       document.body.classList.add('dark');
-       btnSwitch.classList.add('active');
-   } else {
-       document.body.classList.remove('dark');
-       btnSwitch.classList.remove('active');
-   }
 });
+
+ //Evitar quitar el modo oscuro al recargar la pagina
+ if (localStorage.getItem('darkmode') === 'true') {
+   document.body.classList.add('dark');
+   btnSwitch.classList.add('active');
+} else {
+   document.body.classList.remove('dark');
+   btnSwitch.classList.remove('active');
+}
